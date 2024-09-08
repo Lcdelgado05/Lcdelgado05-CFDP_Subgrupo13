@@ -1,5 +1,12 @@
-package InfoVentas;
+package Entidades;
 
+/**
+ * Representa un producto en el sistema de ventas.
+ * <p>
+ * La clase <code>Producto</code> almacena información sobre un producto específico, incluyendo su identificador,
+ * nombre y precio por unidad. Proporciona métodos para acceder y modificar estos datos.
+ * </p>
+ */
 public class Producto {
     private String idProducto;
     private String nombreProducto;

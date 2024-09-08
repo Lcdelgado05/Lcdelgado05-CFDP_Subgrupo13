@@ -1,7 +1,14 @@
-package InfoVentas;
+package Entidades;
 
 import java.util.List;
 
+/**
+ * Representa un vendedor en el sistema de ventas.
+ * <p>
+ * La clase <code>Vendedor</code> almacena información sobre un vendedor, incluyendo su tipo y número de documento,
+ * nombre, apellido y una lista de ventas asociadas. Proporciona métodos para acceder y modificar estos datos.
+ * </p>
+ */
 public class Vendedor {
     private String tipoDocumento;
     private String numeroDocumento;
