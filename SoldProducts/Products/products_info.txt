@@ -1,0 +1,5 @@
+P001;Product_0;12.20
+P002;Product_1;4.65
+P003;Product_2;35.67
+P004;Product_3;43.88
+P005;Product_4;2.44
