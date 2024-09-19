@@ -16,24 +16,38 @@ public class Sale {
         this.quantity = quantity;
     }
 
+    /**
+     * Returns the product ID associated with the sale.
+     * 
+     * @return the product ID
+     */
     public String getProductId() {
         return productId;
     }
 
+    /**
+     * Sets the product ID associated with the sale.
+     * 
+     * @param productId the product ID to set
+     */
     public void setProductId(String productId) {
         this.productId = productId;
     }
+
 
     public int getQuantity() {
         return quantity;
     }
 
     public void setQuantity(int quantity) {
+        if (quantity < 0) {
+            throw new IllegalArgumentException("Quantity cannot be negative");
+        }
         this.quantity = quantity;
     }
 
-    @Override
     public String toString() {
-        return "Product ID: " + productId + ", Quantity: " + quantity;
+        return String.format("Product ID: %s, Quantity: %d", productId, quantity);
     }
+
 }

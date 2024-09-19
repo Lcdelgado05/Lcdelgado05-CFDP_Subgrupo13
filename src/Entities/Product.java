@@ -1,49 +1,52 @@
 package Entities;
 
 /**
- * Represents a product in the sales system.
- * <p>
- * The <code>Product</code> class stores information about a specific product, including its identifier,
- * name, and price per unit. It provides methods to access and modify these data.
- * </p>
+ * Represents a product with an ID, name, and price.
  */
 public class Product {
     private String productId;
     private String productName;
     private double pricePerUnit;
 
+    /**
+     * Constructs a Product object with the specified details.
+     *
+     * @param productId The ID of the product.
+     * @param productName The name of the product.
+     * @param pricePerUnit The price per unit of the product.
+     */
     public Product(String productId, String productName, double pricePerUnit) {
         this.productId = productId;
         this.productName = productName;
         this.pricePerUnit = pricePerUnit;
     }
 
+    /**
+     * Gets the product ID.
+     *
+     * @return The product ID.
+     */
     public String getProductId() {
         return productId;
     }
 
-    public void setProductId(String productId) {
-        this.productId = productId;
-    }
-
-    public String getProductName() {
+    /**
+     * Gets the product name.
+     *
+     * @return The product name.
+     */
+    public String getName() {
         return productName;
     }
 
-    public void setProductName(String productName) {
-        this.productName = productName;
-    }
-
-    public double getPricePerUnit() {
+    /**
+     * Gets the price per unit of the product.
+     *
+     * @return The price per unit.
+     */
+    public double getPrice() {
         return pricePerUnit;
     }
-
-    public void setPricePerUnit(double pricePerUnit) {
-        this.pricePerUnit = pricePerUnit;
-    }
-
-    @Override
-    public String toString() {
-        return productId + ";" + productName + ";" + pricePerUnit;
-    }
 }
+
+
