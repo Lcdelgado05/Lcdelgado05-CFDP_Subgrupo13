@@ -1,12 +1,7 @@
 package Utils;
 
 import Entities.Product;
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.util.*;
 
 /**
@@ -18,28 +13,42 @@ public class GenerateProductsReport {
     private static final String PRODUCTS_FILE = "SoldProducts/Products/products_info.txt";
     private static final String PRODUCTS_REPORT_FILE = "SalesReport/Products/products_report.csv";
 
-    public static void executeReport() {
+    /**
+     * Executes the generation of the product sales report.
+     */
+    public static void displayAndSaveProductsReport() {
         try {
             Map<String, Product> products = readProducts();
             Map<String, Integer> productSales = readSales();
 
-            // Combine product and sales information
-            List<Product> soldProducts = new ArrayList<>();
+            // Collect sales data for report
+            List<String[]> productData = new ArrayList<>();
             for (String productId : productSales.keySet()) {
                 Product product = products.get(productId);
                 if (product != null) {
-                    product.setQuantitySold(productSales.get(productId));
-                    soldProducts.add(product);
+                    int quantitySold = productSales.get(productId);
+                    double totalRevenue = product.getPrice() * quantitySold;
+                    productData.add(new String[]{
+                        product.getProductName(),
+                        String.format("%.2f", product.getPrice()),
+                        String.valueOf(quantitySold),
+                        String.format("%.2f", totalRevenue)
+                    });
                 } else {
-                    System.err.println("Product with ID " + productId + " not found in product file.");
+                    System.err.println("Product with ID " + productId + " not found.");
                 }
             }
 
-            // Sort products by quantity sold in descending order
-            soldProducts.sort((p1, p2) -> Integer.compare(p2.getQuantitySold(), p1.getQuantitySold()));
+            // Sort by quantity sold in descending order
+            productData.sort((a, b) -> Integer.compare(Integer.parseInt(b[2]), Integer.parseInt(a[2])));
 
-            // Generate the report
-            generateProductsReport(soldProducts);
+            // Display results in console (optional)
+            for (String[] data : productData) {
+                System.out.printf("%s, %s, %s, %s%n", data[0], data[1], data[2], data[3]);
+            }
+
+            // Save to CSV
+            saveProductReportToCSV(productData);
 
             System.out.println("Product report successfully generated at: " + PRODUCTS_REPORT_FILE);
         } catch (IOException e) {
@@ -89,7 +98,7 @@ public class GenerateProductsReport {
                     while ((line = br.readLine()) != null) {
                         // Skip header lines
                         if (line.startsWith("DNI") || line.startsWith("CC") || line.startsWith("CE") || line.startsWith("TI")) {
-                            continue; 
+                            continue;
                         }
                         String[] parts = line.split(";");
                         if (parts.length >= 2) {
@@ -107,28 +116,23 @@ public class GenerateProductsReport {
     }
 
     /**
-     * Generates the report file for sold products.
+     * Saves the product report to a CSV file.
      *
-     * @param soldProducts List of sold products with their quantities.
+     * @param productData List of sold products with their details.
      * @throws IOException If an error occurs while writing the file.
      */
-    private static void generateProductsReport(List<Product> soldProducts) throws IOException {
+    private static void saveProductReportToCSV(List<String[]> productData) throws IOException {
         // Create the directory if it doesn't exist
         File reportFile = new File(PRODUCTS_REPORT_FILE);
         reportFile.getParentFile().mkdirs();
 
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(reportFile))) {
-            bw.write("Product Name;Price;Quantity Sold");
+            bw.write("Product Name;Price;Quantity Sold;Total Revenue");
             bw.newLine();
-            for (Product product : soldProducts) {
-                String line = String.format("%s;%.2f;%d",
-                        product.getProductName(),
-                        product.getPrice(),
-                        product.getQuantitySold());
-                bw.write(line);
+            for (String[] product : productData) {
+                bw.write(String.join(";", product));
                 bw.newLine();
             }
         }
     }
 }
-

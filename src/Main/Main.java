@@ -33,7 +33,7 @@ public class Main {
         GeneralSalesReport.displayAndSaveSalesReport(sellers, totalSales);
         
         // Display and save the products report
-        GenerateProductsReport.executeReport();
+        GenerateProductsReport.displayAndSaveProductsReport();
     }
 
     /**

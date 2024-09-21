@@ -1,4 +1,4 @@
-Product Name;Price;Quantity Sold
-harina_kg;21.00;116
-paquete_arroz;22.00;105
-libra_lentejas;58.00;71
+Product Name;Price;Quantity Sold;Total Revenue
+harina_kg;21.00;116;2436.00
+paquete_arroz;22.00;105;2310.00
+libra_lentejas;58.00;71;4118.00
