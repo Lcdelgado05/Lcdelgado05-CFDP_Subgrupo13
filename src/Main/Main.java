@@ -2,6 +2,8 @@ package Main;
 
 import Entities.Seller;
 import Utils.GeneralSalesReport;
+import Utils.GenerateProductsReport;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -29,6 +31,9 @@ public class Main {
 
         // Display and save the sales report
         GeneralSalesReport.displayAndSaveSalesReport(sellers, totalSales);
+        
+        // Display and save the products report
+        GenerateProductsReport.executeReport();
     }
 
     /**
