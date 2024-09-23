@@ -1,8 +1,6 @@
 package Utils;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
@@ -26,13 +24,12 @@ public class GeneralSalesReport {
         // Collect sales data
         for (Map.Entry<String, Double> entry : totalSales.entrySet()) {
             String documentNumber = entry.getKey();
-            double total = entry.getValue();
+            double total = entry.getValue() * 1000; // Multiplicar el total por 1000
             Seller seller = sellers.get(documentNumber);
 
             if (seller != null) {
-                // Multiply by 1,000 for total and format
-                double totalInThousands = total * 1000;
-                String formattedTotal = formatAsColombianCurrency(totalInThousands);
+                // Format the total as Colombian currency
+                String formattedTotal = formatAsColombianCurrency(total);
                 salesData.add(new String[]{
                     seller.getFirstName(),
                     seller.getLastName(),
@@ -51,7 +48,7 @@ public class GeneralSalesReport {
 
         // Display results in console
         for (String[] data : salesData) {
-            System.out.printf("%s,%s,%s%n", data[0], data[1], data[2]);
+            System.out.printf("%s;%s;%s%n", data[0], data[1], data[2]);
         }
 
         // Save to CSV
@@ -59,14 +56,14 @@ public class GeneralSalesReport {
     }
 
     /**
-     * Formats a given amount as Colombian currency.
+    
      *
      * @param amount The amount to format.
      * @return The formatted currency string with points for thousands.
      */
     private static String formatAsColombianCurrency(double amount) {
-        DecimalFormat df = new DecimalFormat("#,###");
-        return df.format(amount).replace(",", ".");
+        DecimalFormat df = new DecimalFormat("#,##0.00");
+        return df.format(amount).replace(",", "."); 
     }
 
     /**
@@ -77,14 +74,18 @@ public class GeneralSalesReport {
     private static void saveSalesReportToCSV(List<String[]> salesData) {
         String csvFile = "SalesReport/TotalSales/sales_report.csv";
 
-        try (BufferedWriter bw = new BufferedWriter(new FileWriter(csvFile))) {
+        // Create the directory if it doesn't exist
+        File reportFile = new File(csvFile);
+        reportFile.getParentFile().mkdirs();
+
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(reportFile))) {
             // Write CSV header
-            bw.write("First Name,Last Name, Total Sales");
+            bw.write("First Name;Last Name;Total Sales");
             bw.newLine();
 
             // Write sales data
             for (String[] data : salesData) {
-                bw.write(String.join(",", data)); // Ensure data is separated by commas
+                bw.write(String.join(";", data));
                 bw.newLine();
             }
             System.out.println("Sales report saved to " + csvFile);
@@ -93,6 +94,8 @@ public class GeneralSalesReport {
         }
     }
 }
+
+
 
 
 

@@ -7,6 +7,7 @@ public class Product {
     private String productId;
     private String productName;
     private double pricePerUnit;
+    private int quantitySold;
 
     /**
      * Constructs a Product object with the specified details.
@@ -19,6 +20,7 @@ public class Product {
         this.productId = productId;
         this.productName = productName;
         this.pricePerUnit = pricePerUnit;
+        this.quantitySold = 0;
     }
 
     /**
@@ -47,6 +49,32 @@ public class Product {
     public double getPrice() {
         return pricePerUnit;
     }
-}
 
+    /**
+     * Gets the product name.
+     *
+     * @return The product name.
+     */
+    public String getProductName() {
+        return productName;
+    }
+
+    /**
+     * Gets the quantity of the product that has been sold.
+     *
+     * @return The quantity sold.
+     */
+    public int getQuantitySold() {
+        return quantitySold;
+    }
+
+    /**
+     * Sets the quantity of the product that has been sold.
+     *
+     * @param quantitySold The quantity sold.
+     */
+    public void setQuantitySold(int quantitySold) {
+        this.quantitySold = quantitySold;
+    }
+}
 
