@@ -15,7 +15,7 @@ public class GenerateProductsReport {
     private static final String PRODUCTS_FILE = "SoldProducts/Products/products_info.txt";
     private static final String PRODUCTS_REPORT_FILE = "SalesReport/Products/products_report.csv";
 
-
+    // Formatter for prices in Colombian format (e.g., 1.000,00)
     private static final DecimalFormat priceFormat = new DecimalFormat("#,##0.00");
 
     /**
@@ -34,16 +34,17 @@ public class GenerateProductsReport {
                     int quantitySold = productSales.get(productId);
                     double totalRevenue = product.getPrice() * quantitySold;
 
-                    
+                    // Format the price in Colombian format for display
                     String formattedPrice = priceFormat.format(product.getPrice());
                     
-
+                    // Add formatted data (price in Colombian format and quantity sold as integer)
                     productData.add(new String[]{
-                    	    product.getProductName(),
-                    	    priceFormat.format(product.getPrice() * 1000), 
-                    	    String.valueOf(quantitySold),
-                    	    priceFormat.format(totalRevenue * 1000) 
-                    	});
+                        product.getProductName(),
+                        priceFormat.format(product.getPrice() * 1000), 
+                        String.valueOf(quantitySold), 
+                        priceFormat.format(totalRevenue * 1000) 
+                    });
+
                 } else {
                     System.err.println("Product with ID " + productId + " not found.");
                 }
@@ -145,8 +146,5 @@ public class GenerateProductsReport {
             }
         }
     }
-
-
 }
-
 
