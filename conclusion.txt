@@ -1,5 +1,17 @@
 1. Que se aprendio durante el desarrollo del proyecto
+- Se aprendio bastante sobre el manejo de datos en archivos estaticos utilzando las clases de BufferedReader y FileReader
+- Manipulacion y centralizacion de datos en distintos tipos de archivos logrando que tengan congruencia tanto en el resultado como en la ejecución
+- Seguir una estructura centralizada para la organizacion de clases, metodos, entidades, y utilidades para poder tener estructura escalable
+- Poder configurar un entorno de contról de versiones en los que varios usuarios puedan trabajar simultaneamente y compartir sus contribuciones
 
 2. Posibles aplicaciones de lo aprendido a nivel profesional
+- Trabajo en equipo
+- Trabajo en entornos de desarrollo ágil
+- Estrategias para trabajar en grupo en un repositorio
+- Estraegias para el manejo de datos en diferentes tipos de archivos (Como CSV, TXT, y demás)
 
 3. Dificultades presentadas durante el proyecto
+- Los textos generados al principio no se generaban en una sola carpeta
+- Hubo un bug de que los datos no se separaban correctamente en casos concretos
+- Manipulacion de los datos cuando no habia una estructura claramente definida con las clases
+- Decidir que patron de diseño seguir al momento de estructurar el proyecto y tener que adecuar el codigo existente al nuevo patrón
