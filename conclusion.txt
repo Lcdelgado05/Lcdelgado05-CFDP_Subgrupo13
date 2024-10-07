@@ -1,17 +1,8 @@
-1. Que se aprendio durante el desarrollo del proyecto
-- Se aprendio bastante sobre el manejo de datos en archivos estaticos utilzando las clases de BufferedReader y FileReader
-- Manipulacion y centralizacion de datos en distintos tipos de archivos logrando que tengan congruencia tanto en el resultado como en la ejecución
-- Seguir una estructura centralizada para la organizacion de clases, metodos, entidades, y utilidades para poder tener estructura escalable
-- Poder configurar un entorno de contról de versiones en los que varios usuarios puedan trabajar simultaneamente y compartir sus contribuciones
+1. Que se aprendio durante el desarrollo del proyecto:
+Durante el desarrollo del proyecto se adquirió un conocimiento sobre el manejo de datos en archivos estadísticos empleando las clases de BufferedReader y FileReader igualmente se logro manipular y centralizar los datos en diferentes tipos de archivos obteniendo coherencia en el  resultados y la ejecución, se estableció una estructura centralizada para las clases, métodos, entidades y utilidades para obtener la capacidad de adaptación y respuesta del sistema, por ultimo se estructuro un entorno de control de versión, para que varios usuarios puedan trabajar simultáneamente y compartir sus atribuciones.
 
-2. Posibles aplicaciones de lo aprendido a nivel profesional
-- Trabajo en equipo
-- Trabajo en entornos de desarrollo ágil
-- Estrategias para trabajar en grupo en un repositorio
-- Estraegias para el manejo de datos en diferentes tipos de archivos (Como CSV, TXT, y demás)
+2. Posibles aplicaciones de lo aprendido a nivel profesional:
+Algunas aplicaciones que podemos implementar a nivel profesional están encaminadas inicialmente al trabajo en equipo, el crecimiento en entornos de desarrollo agil, utilizando estrategias para garantizar un trabajo en grupo efectivo  y proactivo en el repositorio, finalmente generar estrategias de diferentes conceptos fundamentales para el manejo de datos en diferentes tipos de archivos los cuales son CSV, TXT, entre otros
 
 3. Dificultades presentadas durante el proyecto
-- Los textos generados al principio no se generaban en una sola carpeta
-- Hubo un bug de que los datos no se separaban correctamente en casos concretos
-- Manipulacion de los datos cuando no habia una estructura claramente definida con las clases
-- Decidir que patron de diseño seguir al momento de estructurar el proyecto y tener que adecuar el codigo existente al nuevo patrón
+Algunas de las dificultades obtenidas durante este proyecto, se dieron debido a que inicialmente los textos no generaban en una sola carpeta, también se presento un error el cual evitaba la separación correcta en algunos datos específicos,complicaciones en la manipulación de datos ya que no había una estructura claramente definida con las clases y una determinación de que patrón de diseño seguir al momento de estructurar el proyecto y adecuar el código existente al nuevo patrón.
