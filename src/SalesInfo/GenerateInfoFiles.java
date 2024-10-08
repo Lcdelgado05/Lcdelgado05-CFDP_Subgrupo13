@@ -18,10 +18,10 @@ public class GenerateInfoFiles {
     private static final String SALES_FOLDER = "Sales";
     private static final String SELLERS_FOLDER = "Sellers";
     private static final String PRODUCTS_FOLDER = "Products";
-    private static final int NUM_SELLERS = 10;
-    private static final int NUM_PRODUCTS = 20;
-    private static final int NUM_PRODUCTS_PER_SELLER = 3; // Number of products per seller
-    private static final int MAX_QUANTITY = 20; // Maximum quantity per sale
+    private static final int NUM_SELLERS = 7;
+    private static final int NUM_PRODUCTS = 10;
+    private static final int NUM_PRODUCTS_PER_SELLER = 8; // Number of products per seller
+    private static final int MAX_QUANTITY = 10; // Maximum quantity per sale
 
     public static void main(String[] args) {
         File mainFolder = new File(MAIN_FOLDER);
